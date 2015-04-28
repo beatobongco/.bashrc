@@ -136,7 +136,7 @@ alias dcpbu-nd='docker-compose build && docker-compose up --no-deps'
 alias dm='docker-machine'
 alias dme='docker-machine env'
 alias dma='docker-machine active'
-alias dcp restart='docker-compose stop && docker-compose start'
+alias dcpres='docker-compose stop && docker-compose start'
 
 # Git
 alias gst='git status'
