@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+    # We have color support; assume it's compliant with Ecma-48
+    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+    # a case would tend to support setf rather than setaf.)
+    color_prompt=yes
     else
-	color_prompt=
+    color_prompt=
     fi
 fi
 
@@ -137,6 +137,12 @@ alias dm='docker-machine'
 alias dme='docker-machine env'
 alias dma='docker-machine active'
 alias dcpres='docker-compose stop && docker-compose start'
+alias deti='docker exec -ti'
+
+# Docker production yml
+alias dcpp='docker-compose -f docker-compose-prod.yml'
+alias dcppu='docker-compose -f docker-compose-prod.yml up'
+alias dcppb='docker-compose -f docker-compose-prod.yml build'
 
 # Git
 alias gst='git status'
@@ -145,3 +151,7 @@ alias gp='git push'
 alias gac='git add . && git commit -av'
 alias gpuo='git push -u origin'
 alias gogit='cd Desktop/github'
+
+alias tarzip='tar -cvzf'
+alias tarunzip='tar -zxvf'
+alias mount_shared='sudo mount -t vboxsf VMShare ~/VMShare/'
