@@ -150,7 +150,7 @@ alias gl='git pull'
 alias gp='git push'
 alias gac='git add . && git commit -av'
 alias gpuo='git push -u origin'
-alias gogit='cd Desktop/github'
+alias gg='cd /home/beato/Desktop/github'
 
 alias tarzip='tar -cvzf'
 alias tarunzip='tar -zxvf'
