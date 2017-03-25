@@ -119,8 +119,18 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 command -v git >/dev/null && PS1="$PS1\$(__git_ps1 '[%s] ')"
 
-alias desk='cd ~/Desktop'
-alias up='cd ..'
+# Functions
+getenv() {
+    # sets environment variables from file
+    # usage: getenv <filename>
+    set -o allexport
+    source $1
+    set +o allexport
+}
+
+# General
+alias d='cd ~/Desktop'
+alias ..='cd ..'
 alias agi='sudo apt-get install'
 alias update='sudo apt-get update'
 
@@ -152,6 +162,15 @@ alias gac='git add . && git commit -av'
 alias gpuo='git push -u origin'
 alias gg='cd /home/beato/Desktop/github'
 
+# Chrome
+alias ogc='google-chrome'
+
+# Zipping
 alias tarzip='tar -cvzf'
 alias tarunzip='tar -zxvf'
+
+# Old command to mount virtualbox shared folder
 alias mount_shared='sudo mount -t vboxsf VMShare ~/VMShare/'
+
+# For jupyter notebook
+export PATH="/home/beato/anaconda3/bin:$PATH"
