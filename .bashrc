@@ -156,7 +156,7 @@ alias dcppb='docker-compose -f docker-compose-prod.yml build'
 
 # Git
 alias gst='git status'
-alias gl='git pull'
+alias gl='git pull --ff-only'
 alias gp='git push'
 alias gac='git add . && git commit -av'
 alias gpuo='git push -u origin'
