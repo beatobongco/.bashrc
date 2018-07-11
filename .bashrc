@@ -161,6 +161,7 @@ alias gp='git push'
 alias gac='git add . && git commit -av'
 alias gpuo='git push -u origin'
 alias gg='cd /home/beato/Desktop/github'
+alias gai='git add -i && git commit -v'
 
 # Chrome
 alias ogc='google-chrome'
@@ -169,8 +170,8 @@ alias ogc='google-chrome'
 alias tarzip='tar -cvzf'
 alias tarunzip='tar -zxvf'
 
-# Old command to mount virtualbox shared folder
-alias mount_shared='sudo mount -t vboxsf VMShare ~/VMShare/'
+# Remap my german kb greater than to shift
+xmodmap -e "keycode 94 = Shift_L"
 
 # For jupyter notebook
 export PATH="/home/beato/anaconda3/bin:$PATH"
