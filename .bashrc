@@ -165,19 +165,5 @@ alias tarunzip='tar -zxvf'
 # Remap my german kb greater than to shift
 xmodmap -e "keycode 94 = Shift_L"
 
-anaconds() {
-    # quick function for toggling anaconda
-    # the regex finds "export PATH" only at the start of the line
-    # and comments and uncomments it
-    if [[ $1 == "off" ]]; then
-        echo "Anaconda deactivated. It don't want none."
-        sed -i '/^export PATH/s/^/#/' ~/.bashrc
-    else
-        echo "Anaconda activated. You got buns."
-        sed -i '/^#export PATH/s/^##*//' ~/.bashrc
-    fi
-    source ~/.bashrc
-}
-
 # For jupyter notebook
-#export PATH="/home/beato/anaconda3/bin:$PATH"
+export PATH="/home/beato/anaconda3/bin:$PATH"
