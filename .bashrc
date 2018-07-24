@@ -119,18 +119,10 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 command -v git >/dev/null && PS1="$PS1\$(__git_ps1 '[%s] ')"
 
-# Functions
-getenv() {
-    # sets environment variables from file
-    # usage: getenv <filename>
-    set -o allexport
-    source $1
-    set +o allexport
-}
-
 # General
 alias d='cd ~/Desktop'
 alias ..='cd ..'
+alias ...='cd ../..'
 alias agi='sudo apt-get install'
 alias update='sudo apt-get update'
 
@@ -173,5 +165,19 @@ alias tarunzip='tar -zxvf'
 # Remap my german kb greater than to shift
 xmodmap -e "keycode 94 = Shift_L"
 
+anaconds() {
+    # quick function for toggling anaconda
+    # the regex finds "export PATH" only at the start of the line
+    # and comments and uncomments it
+    if [[ $1 == "off" ]]; then
+        echo "Anaconda deactivated. It don't want none."
+        sed -i '/^export PATH/s/^/#/' ~/.bashrc
+    else
+        echo "Anaconda activated. You got buns."
+        sed -i '/^#export PATH/s/^##*//' ~/.bashrc
+    fi
+    source ~/.bashrc
+}
+
 # For jupyter notebook
-export PATH="/home/beato/anaconda3/bin:$PATH"
+#export PATH="/home/beato/anaconda3/bin:$PATH"
