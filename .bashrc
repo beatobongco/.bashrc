@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # We have color support; assume it's compliant with Ecma-48
-    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-    # a case would tend to support setf rather than setaf.)
-    color_prompt=yes
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
     else
-    color_prompt=
+	color_prompt=
     fi
 fi
 
@@ -84,6 +84,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -113,38 +116,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
-source /usr/local/bin/virtualenvwrapper.sh
-
-command -v git >/dev/null && PS1="$PS1\$(__git_ps1 '[%s] ')"
-
 # General
-alias d='cd ~/Desktop'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias agi='sudo apt-get install'
-alias update='sudo apt-get update'
+alias ....='cd ../../..'
 
 # Docker
 alias dcp='docker-compose'
-alias dcps='docker-compose ps'
-alias dcpl='docker-compose logs'
-alias dcpb='docker-compose build'
-alias dcpu='docker-compose up'
-alias dcpbu='docker-compose build && docker-compose up'
-alias dcpr='docker-compose run --rm'
-alias dcpbu-nd='docker-compose build && docker-compose up --no-deps'
-alias dm='docker-machine'
-alias dme='docker-machine env'
-alias dma='docker-machine active'
-alias dcpres='docker-compose stop && docker-compose start'
-alias deti='docker exec -ti'
-
-# Docker production yml
 alias dcpp='docker-compose -f docker-compose-prod.yml'
-alias dcppu='docker-compose -f docker-compose-prod.yml up'
-alias dcppb='docker-compose -f docker-compose-prod.yml build'
 
 # Git
 alias gst='git status'
@@ -152,25 +131,11 @@ alias gl='git pull --ff-only'
 alias gp='git push'
 alias gac='git add . && git commit -av'
 alias gpuo='git push -u origin'
-alias gg='cd /home/beato/Desktop/github'
-alias gai='git add -i && git commit -v'
+alias gg='cd ~/github'
 
-# Chrome
+# Browsers
 alias ogc='google-chrome'
 
 # Zipping
 alias tarzip='tar -cvzf'
 alias tarunzip='tar -zxvf'
-
-# Remap my german kb greater than to shift
-xmodmap -e "keycode 94 = Shift_L"
-
-# For jupyter notebook
-export PATH="/home/beato/anaconda3/bin:$PATH"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-alias locus='wmctrl -x -a "$1" || $2'
-. /home/beato/anaconda3/etc/profile.d/conda.sh
