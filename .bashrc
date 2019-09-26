@@ -120,6 +120,7 @@ fi
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias k='cd ~/keys'
 
 # Docker
 alias dcp='docker-compose'
@@ -139,3 +140,6 @@ alias ogc='google-chrome'
 # Zipping
 alias tarzip='tar -cvzf'
 alias tarunzip='tar -zxvf'
+
+source /usr/lib/git-core/git-sh-prompt
+export PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h:\[\033[01;34m\]\w\[\033[00m\]\$(__git_ps1)\[\033[00m\] ∇ "
